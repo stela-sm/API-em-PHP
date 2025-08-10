@@ -1,0 +1,10 @@
+#Options -Indexes
+
+RewriteEngine On
+
+# Não reescreve se for um arquivo ou diretório real
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redireciona tudo para router.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L,NC]
